@@ -1,0 +1,77 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  width: 990px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.logo h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.logo-pic {
+  width: 50px;
+  height: 50px;
+  background: black;
+}
+
+main {
+  height: 58%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.slider {
+  width: 100%;
+  height: 60%;
+  background: red;
+}
+
+.nav-btn {
+  border: none;
+  background: none;
+  font-size: 26px;
+  font-weight: bold;
+}
+.nav-btn:hover {
+  cursor: pointer;
+}
+
+nav {
+  height: 14%;
+  position: sticky;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+}
+nav .container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-btn {
+  border: none;
+  background: none;
+  font-size: 26px;
+  font-weight: bold;
+}
+.nav-btn:hover {
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+}
+
+/*# sourceMappingURL=main.css.map */
