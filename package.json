@@ -1,0 +1,23 @@
+{
+  "name": "postcard_with_no_borders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "serve": "^11.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bedpaw/postcard_with_no_borders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bedpaw/postcard_with_no_borders/issues"
+  },
+  "homepage": "https://github.com/Bedpaw/postcard_with_no_borders#readme"
+}
