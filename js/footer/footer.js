@@ -1,4 +1,3 @@
-
 function createNavButton ({ passiveText, activeText, passiveClass, activeClass }) {
     const toggleInnerText = elem => elem.innerText === passiveText ? elem.innerText = activeText : elem.innerText = passiveText
 
@@ -12,7 +11,7 @@ function createNavButton ({ passiveText, activeText, passiveClass, activeClass }
     return footerButton
   }
 
-export function createNav(htmlElem, buttonsDetails) {
+export default function createNav(htmlElem, buttonsDetails) {
   const navBar = document.querySelector("nav");
   buttonsDetails.map( (buttonDetail) => {
     const navButton = createNavButton(buttonDetail)
