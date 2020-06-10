@@ -1,4 +1,4 @@
-import  createNav from "./footer/footer.js";
+import createNav from "./footer/footer.js";
 import createSlider from "./slider/slider.js";
 
 const navButtons = [

@@ -1,0 +1,7 @@
+" Wszystkie uzyskane środki będą przekazywane na służbę zdrowia. A co z kosztem samych pocztówek i ich wysyłki? No właśnie, tutaj liczymy na Waszą pomoc!" +
+    " Chcemy, by uczestnicy pocztówkowej akcji nie musieli dodatkowo ponosić kosztów związanych z zakupem kartek i znaczków." +
+    " Obecnie naszym celem jest więc zebranie środków na stworzenie 1000 pakietów pocztówkowych, w których znajdą się 3 kartki i 3 znaczki." +
+    " Dzięki temu każdy uczestnik akcji będzie musiał jedynie wpłacić kwotę na rzecz służby zdrowia, korzystając z linku (pojawi się on na stronie, gdy wystartujemy z całym projektem)." +
+    " Po przesłaniu dowodu wpłaty otrzyma od nas pakiet pocztówkowy." +
+    " Obecnie prowadzimy zrzutkę, która pozwoli nam na przygotowanie pakietów startowych, a tym samym – na wystartowanie z całą akcją. " +
+    " Jeśli chcesz nas wesprzeć, zajrzyj tutaj [tu link]. Każda złotówka ma znaczenie. "
