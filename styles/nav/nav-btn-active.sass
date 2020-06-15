@@ -1,10 +1,27 @@
 .nav-btn-active
-  position: relative
-  bottom: 150px
+  position: absolute
+  top: -24%
+  right: -6%
   padding: 20px
-  font-size: 16px
+  font-size: 13px
   border: none
-  max-width: 500px
-  background: rgba(19, 2, 2, 0.77) none
+  width: 180%
+  background: rgba(19, 2, 2, 1) none
   color: white
   text-align: justify
+
+@media screen and (min-width: 768px)
+  .nav-btn-active
+    right: -19%
+    font-size: 14px
+    width: 300%
+    background: rgba(19, 2, 2, 1) none
+
+@media screen and (min-width: 1024px)
+  .nav-btn-active
+    position: relative
+    top: -197%
+    right: 0
+    height: 550%
+    max-width: 24%
+    background: rgba(19, 2, 2, .77) none

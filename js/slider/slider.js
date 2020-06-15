@@ -9,10 +9,10 @@ function createSlideDiv(image) {
     slideImg.src = image.src
     slideImg.alt = 'slide'
 
+
     slideDiv.appendChild(slideImg)
     return [slideDiv, image.horizontal]
 }
-
 
 export default function createSlider(htmlElem, imagesDetails) {
 
@@ -65,9 +65,4 @@ export default function createSlider(htmlElem, imagesDetails) {
     getActiveImage(activeImageIndex).style.display = 'flex'
     getActiveImage(activeImageIndex).classList.add('active')
     getActiveImage(activeImageIndex).firstChild.classList.add('active')
-
-
-
 }
-
-
