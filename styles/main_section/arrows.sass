@@ -1,0 +1,50 @@
+.arrow
+  width: 0
+  height: 0
+  opacity: 0.9
+
+
+.arrow-right
+  @extend .arrow
+  border-top: 10px solid transparent
+  border-bottom: 10px solid transparent
+  border-left: 10px solid white
+
+.arrow-left
+  @extend .arrow
+  border-top: 10px solid transparent
+  border-bottom: 10px solid transparent
+  border-right: 10px solid white
+
+
+.arrow-div
+  background: #bebebe
+  opacity: 0.5
+  cursor: pointer
+  align-items: center
+  justify-content: center
+  display: none
+  z-index: 5
+
+.arrow-left-div
+  @extend .arrow-div
+  $width: 40px
+  $height: 80px
+
+  width: $width
+  height: $height
+  position: absolute
+  top: calc(50% - #{$height/2})
+
+
+.arrow-right-div
+  @extend .arrow-div
+  $width: 40px
+  $height: 80px
+
+  width: $width
+  height: $height
+  position: absolute
+  top: calc(50% - #{$height/2})
+  right: 0
+

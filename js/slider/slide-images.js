@@ -1,6 +1,6 @@
 export const images = [
   {
-    src: 'styles/postcards/rio.jpg',
+    src: 'styles/postcards/new_york.jpg',
     horizontal: true
   },
   {
@@ -12,7 +12,7 @@ export const images = [
     horizontal: false
   },
   {
-    src: 'styles/postcards/new_york.jpg',
+    src: 'styles/postcards/rio.jpg',
     horizontal: true
   },
   {
