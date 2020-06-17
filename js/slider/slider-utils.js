@@ -61,7 +61,7 @@ export function setProperWidths (S, activeImageIndex, slidesPositions, mobileVie
         setSecondImageWidth(20)
       }
     } else {
-      setActiveImageWidth(40)
+      setActiveImageWidth(35)
 
       if (isFirstHorizontal && isSecondHorizontal) {
         setActiveImageWidth(30)
@@ -69,9 +69,9 @@ export function setProperWidths (S, activeImageIndex, slidesPositions, mobileVie
         setSecondImageWidth(35)
       } else if (isFirstHorizontal) {
         setFirstImageWidth(40)
-        setSecondImageWidth(20)
+        setSecondImageWidth(25)
       } else if (isSecondHorizontal) {
-        setFirstImageWidth(20)
+        setFirstImageWidth(25)
         setSecondImageWidth(40)
       }
     }

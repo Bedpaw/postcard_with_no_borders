@@ -61,9 +61,9 @@ export default function createSlider(htmlElem, imagesDetails) {
         const activeImage = getActiveImage()
         activeImage.style.display = 'none'
         activeImage.classList.remove('active')
-        activeImage.childNodes[1].classList.remove('active')
         activeImage.style.order = '0'
         activeImage.childNodes[0].style.display = 'none'
+        activeImage.childNodes[1].classList.remove('active')
         activeImage.childNodes[2].style.display = 'none'
         activeImage.childNodes[3].style.display = 'none'
     }
