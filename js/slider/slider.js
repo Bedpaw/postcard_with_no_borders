@@ -40,82 +40,79 @@ export default function createSlider(htmlElem, imagesDetails) {
     // S -> SLIDER
     // sU -> SLIDER UTILS
     const setProperImagesWidth = (media) => sU.setProperWidths(S, activeImageIndex, slidesPositions, media)
+
     const getFirstImage = () => sU.getImage(S, activeImageIndex, 1)
     const getSecondImage = () => sU.getImage(S, activeImageIndex, 2)
     const getActiveImage = () => sU.getImage(S, activeImageIndex, 3)
-    const getImageFromRight = () => sU.getImage(S, activeImageIndex, 4)
 
-    const showFirstImage = () => getFirstImage().style.display = 'flex'
-    const showSecondImage = () => getSecondImage().style.display = 'flex'
-
-    const showAndActiveImage = (imageToActive) => {
-        imageToActive.style.display = 'flex'
-        imageToActive.classList.add('active')
-        imageToActive.childNodes[0].style.display = 'flex'
-        imageToActive.childNodes[1].style.display = 'flex'
-        imageToActive.childNodes[1].classList.add('active')
-        imageToActive.childNodes[2].style.display = 'flex'
-        imageToActive.childNodes[3].style.display = 'flex'
-        imageToActive.style.order = '3'
-        getFirstImage().childNodes[1].style.display = 'flex'
-        getSecondImage().childNodes[1].style.display = 'flex'
+    const showAndSetOrderForFirstImage = () => {
+        const image = getFirstImage()
+        image.style.display = 'flex'
+        image.style.order = '1'
     }
-
-    const hideAndUnActiveImage = (activeImage) => {
-        activeImage.style.display = 'none'
-        activeImage.classList.remove('active')
-        activeImage.style.order = '0'
-        activeImage.childNodes[0].style.display = 'none'
-        activeImage.childNodes[1].classList.remove('active')
-        activeImage.childNodes[2].style.display = 'none'
-        activeImage.childNodes[3].style.display = 'none'
+    const showAndSetOrderForSecondImage = () => {
+        const image = getSecondImage()
+        image.style.display = 'flex'
+        image.style.order = '2'
     }
-
-    const nextActiveImageIndex = () => {
-        if (--activeImageIndex === -1) activeImageIndex = S.childNodes.length - 1
-        if (activeImageIndex === 1 || activeImageIndex === 0) getActiveImage().style.order = '2';
-        if (activeImageIndex === 1) getSecondImage().style.order = '1';
-    }
-    const prevActiveImageIndex = () => {
-        if (++activeImageIndex === S.childNodes.length) activeImageIndex = 0
-        if (activeImageIndex === 1 || activeImageIndex === 0) getActiveImage().style.order = '2';
-        if (activeImageIndex === 1) getSecondImage().style.order = '1';
-    }
-
-    const unActiveImage = (activeImage) => {
-        activeImage.classList.remove('active')
-        activeImage.childNodes[1].classList.remove('active')
-        activeImage.style.order = '0'
-        activeImage.childNodes[0].style.display = 'none'
-        activeImage.childNodes[2].style.display = 'none'
-        activeImage.childNodes[3].style.display = 'none'
+    const showAndSetOrderForActiveImage = () => {
+        const image = getActiveImage()
+        image.style.display = 'flex'
+        image.style.order = '3'
+        activeImage(image)
     }
     const hideImage = (imageToHide) => {
         imageToHide.style.display = 'none'
         imageToHide.style.order = '0'
-        imageToHide.childNodes[1].style.display = 'none'
-
     }
+
+    const nextActiveImageIndex = () => {
+        if (--activeImageIndex === -1) activeImageIndex = S.childNodes.length - 1
+    }
+    const prevActiveImageIndex = () => {
+        if (++activeImageIndex === S.childNodes.length) activeImageIndex = 0
+    }
+
+    const activeImage = (imageToActive) => {
+        imageToActive.classList.add('active')
+        imageToActive.childNodes[0].style.display = 'flex'
+        imageToActive.childNodes[1].classList.add('active')
+        imageToActive.childNodes[2].style.display = 'flex'
+        imageToActive.childNodes[3].style.display = 'flex'
+    }
+    const unActiveImage = (activeImage) => {
+        activeImage.classList.remove('active')
+        activeImage.childNodes[0].style.display = 'none'
+        activeImage.childNodes[1].classList.remove('active')
+        activeImage.childNodes[2].style.display = 'none'
+        activeImage.childNodes[3].style.display = 'none'
+    }
+
+    const showAndSetOrderForImages = () => {
+        showAndSetOrderForFirstImage()
+        showAndSetOrderForSecondImage()
+        showAndSetOrderForActiveImage()
+    }
+    const hideAndUnActive = (imageToHide, imageToUnActive) => {
+        hideImage(imageToHide)
+        unActiveImage(imageToUnActive)
+    }
+
     const nextImage = () => {
-        hideAndUnActiveImage(getActiveImage())
-
+        hideAndUnActive(getActiveImage(), getActiveImage())
         nextActiveImageIndex()
-
-        showAndActiveImage(getActiveImage())
-        showFirstImage()
+        showAndSetOrderForImages()
         setProperImagesWidth()
     }
     const prevImage = () => {
-        unActiveImage(getActiveImage())
-        hideImage(getFirstImage())
-
+        hideAndUnActive(getFirstImage(), getActiveImage())
         prevActiveImageIndex()
-
-        showAndActiveImage(getActiveImage())
+        showAndSetOrderForImages()
         setProperImagesWidth()
     }
 
 /////////////////////////// INITIALIZE /////////////////////////////////
+
     const S = document.getElementsByClassName(htmlElem)[0]
     const slidesPositions = []
 
@@ -130,9 +127,9 @@ export default function createSlider(htmlElem, imagesDetails) {
 
     // Show first 3 pictures
     let activeImageIndex = S.childNodes.length - 1
-    showFirstImage()
-    showSecondImage()
-    showAndActiveImage(getActiveImage())
+    showAndSetOrderForFirstImage()
+    showAndSetOrderForSecondImage()
+    showAndSetOrderForActiveImage()
 }
 
 function createSlideDiv(image) {
