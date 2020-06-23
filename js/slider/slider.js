@@ -12,22 +12,6 @@ export default function createSlider(htmlElem, imagesDetails) {
     const getSecondImage = () => sU.getImage(S, activeImageIndex, 2)
     const getActiveImage = () => sU.getImage(S, activeImageIndex, 3)
 
-    const showAndSetOrderForFirstImage = () => {
-        const image = getFirstImage()
-        image.style.display = 'flex'
-        image.style.order = '1'
-    }
-    const showAndSetOrderForSecondImage = () => {
-        const image = getSecondImage()
-        image.style.display = 'flex'
-        image.style.order = '2'
-    }
-    const showAndSetOrderForActiveImage = () => {
-        const image = getActiveImage()
-        image.style.display = 'flex'
-        image.style.order = '3'
-        activeImage(image)
-    }
     const hideImage = (imageToHide) => {
         imageToHide.style.display = 'none'
         imageToHide.style.order = '0'
@@ -60,9 +44,14 @@ export default function createSlider(htmlElem, imagesDetails) {
     }
 
     const showAndSetOrderForImages = () => {
-        showAndSetOrderForFirstImage()
-        showAndSetOrderForSecondImage()
-        showAndSetOrderForActiveImage()
+        const images = [getFirstImage(), getSecondImage(), getActiveImage()]
+        activeImage(images[2])
+
+        images.map((image, index) => {
+            image.style.display = 'flex'
+            image.style.order = index.toString()
+        })
+
     }
     const hideAndUnActive = (imageToHide, imageToUnActive) => {
         hideImage(imageToHide)
@@ -98,7 +87,5 @@ export default function createSlider(htmlElem, imagesDetails) {
 
     // Show first 3 pictures
     let activeImageIndex = S.childNodes.length - 1
-    showAndSetOrderForFirstImage()
-    showAndSetOrderForSecondImage()
-    showAndSetOrderForActiveImage()
+    showAndSetOrderForImages()
 }
