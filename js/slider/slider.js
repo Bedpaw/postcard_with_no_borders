@@ -1,40 +1,7 @@
 import * as sU from './slider-utils.js'
+import { createHiddenPostcard } from './hidden-postcard-creator.js'
+import { createSlideDiv } from './slide-creator.js'
 
-function createHiddenPostcard(postcardDetails = {
-    title: 'Pozdrowienia z Malty',
-    p1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dolor sem, facilisis ac lectus luctus, tempus congue libero. Donec id risus a lorem commodo dictum. Nam sit amet pellentesque lacus. Aenean pellentesque dolor felis, vel pretium nunc efficitur euismod. Duis ac dolor ante. Vestibulum tortor diam, gravida a cursus non, pellentesque eget ipsum. Suspendisse potenti. Morbi eget nibh magna. Nulla ex turpis, gravida ac risus ac, pretium laoreet libero. Maecenas posuere tristique malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-    p2: "Maecenas semper sem ut turpis iaculis, sit amet tincidunt purus auctor. Cras vehicula neque et arcu semper mattis. Nunc sed dui lacinia metus fringilla lacinia. Duis porta eros vitae mollis molestie. Suspendisse sagittis commodo nulla, vel venenatis est aliquet et. Nam tellus lorem, volutpat vitae diam quis, rutrum dignissim sem. Maecenas et nisi tristique, mollis turpis ac, pulvinar tortor. Aenean euismod velit sapien, at sodales nulla sodales non.",
-    footer: "Goodbye, Ania"
-}) {
-    const postCardDiv = document.createElement('div')
-    postCardDiv.classList.add('hidden-postcard')
-
-    const postcardContent = document.createElement('div')
-    postcardContent.classList.add('hidden-postcard-content')
-    postCardDiv.appendChild(postcardContent)
-
-    const title = document.createElement('div')
-    title.innerText = postcardDetails.title
-    title.classList.add('hidden-postcard-title')
-    postcardContent.appendChild(title)
-
-
-    const p1 = document.createElement('p')
-    p1.innerText = postcardDetails.p1
-    p1.classList.add('hidden-postcard-paragraph')
-
-    postcardContent.appendChild(p1)
-
-    const p2 = document.createElement('p')
-    p2.innerText = postcardDetails.p2
-    p2.classList.add('hidden-postcard-paragraph')
-    postcardContent.appendChild(p2)
-
-    const footer = document.createElement('div')
-    footer.innerText = postcardDetails.footer
-    postcardContent.appendChild(footer)
-    return postCardDiv
-}
 
 export default function createSlider(htmlElem, imagesDetails) {
     // S -> SLIDER
@@ -73,19 +40,23 @@ export default function createSlider(htmlElem, imagesDetails) {
         if (++activeImageIndex === S.childNodes.length) activeImageIndex = 0
     }
 
+    const setDisplayForArrowsAndHiddenImage = (image, display) => {
+        image.childNodes[0].style.display = display // arrowLeft
+        image.childNodes[2].style.display = display // arrowRight
+        image.childNodes[3].style.display = display // hiddenImage
+    }
+
     const activeImage = (imageToActive) => {
         imageToActive.classList.add('active')
-        imageToActive.childNodes[0].style.display = 'flex'
-        imageToActive.childNodes[1].classList.add('active')
-        imageToActive.childNodes[2].style.display = 'flex'
-        imageToActive.childNodes[3].style.display = 'flex'
+        imageToActive.childNodes[1].classList.add('active') // image
+        setDisplayForArrowsAndHiddenImage(imageToActive, 'flex')
+
     }
     const unActiveImage = (activeImage) => {
         activeImage.classList.remove('active')
-        activeImage.childNodes[0].style.display = 'none'
-        activeImage.childNodes[1].classList.remove('active')
-        activeImage.childNodes[2].style.display = 'none'
-        activeImage.childNodes[3].style.display = 'none'
+        activeImage.childNodes[1].classList.remove('active') // image
+        setDisplayForArrowsAndHiddenImage(activeImage, 'none')
+
     }
 
     const showAndSetOrderForImages = () => {
@@ -116,7 +87,7 @@ export default function createSlider(htmlElem, imagesDetails) {
     const S = document.getElementsByClassName(htmlElem)[0]
     const slidesPositions = []
 
-    imagesDetails.map((imageDetail) => {
+    imagesDetails.map( (imageDetail) => {
         const [slideDiv, slidePosition] = createSlideDiv(imageDetail)
         slidesPositions.push(slidePosition)
         slideDiv.childNodes[0].addEventListener('click', () => prevImage())
@@ -130,38 +101,4 @@ export default function createSlider(htmlElem, imagesDetails) {
     showAndSetOrderForFirstImage()
     showAndSetOrderForSecondImage()
     showAndSetOrderForActiveImage()
-}
-
-function createSlideDiv(image) {
-
-    const slideDiv = document.createElement('div')
-    slideDiv.classList.add('slide')
-    slideDiv.style.display = 'none'
-    slideDiv.style.order = '0'
-
-    const slideImg = document.createElement('img')
-    slideImg.classList.add('slide-img')
-    slideImg.src = image.src
-    slideImg.alt = 'slide'
-
-    const arrowLeftDiv = document.createElement('div')
-    arrowLeftDiv.classList.add('arrow-left-div')
-
-    const arrowLeft = document.createElement('div')
-    arrowLeft.classList.add('arrow-left')
-    arrowLeftDiv.appendChild(arrowLeft)
-
-    const arrowRightDiv = document.createElement('div')
-    arrowRightDiv.classList.add('arrow-right-div')
-
-    const arrowRight = document.createElement('div')
-    arrowRight.classList.add('arrow-right')
-    arrowRightDiv.appendChild(arrowRight)
-
-
-    slideDiv.appendChild(arrowLeftDiv)
-    slideDiv.appendChild(slideImg)
-    slideDiv.appendChild(arrowRightDiv)
-
-    return [slideDiv, image.horizontal]
 }
