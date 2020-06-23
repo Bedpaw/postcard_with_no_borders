@@ -8,7 +8,10 @@ function getSecondImageIndex(S, activeImageIndex) {
   if (activeImageIndex === 0) return S.childNodes.length - 1;
   else return activeImageIndex - 1
 }
-
+function getImageFromRight(S, activeImageIndex) {
+  if (activeImageIndex === S.childNodes.length - 1) return 0
+  else return activeImageIndex + 1
+}
 export function getImage(S, activeImageIndex, index) {
   let imageIndex = 0
   switch (index) {
@@ -21,12 +24,12 @@ export function getImage(S, activeImageIndex, index) {
     case 3:
       imageIndex = activeImageIndex
       break
+    case 4:
+      imageIndex = getImageFromRight()
+      break;
   }
   return S.childNodes[imageIndex]
 }
-
-
-
 
 export function setProperWidths (S, activeImageIndex, slidesPositions, mobileViewport) {
   const mq = window.matchMedia( "(max-width: 768px)" );

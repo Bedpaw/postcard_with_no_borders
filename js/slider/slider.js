@@ -8,10 +8,10 @@ function createHiddenPostcard(postcardDetails = {
 }) {
     const postCardDiv = document.createElement('div')
     postCardDiv.classList.add('hidden-postcard')
+
     const postcardContent = document.createElement('div')
     postcardContent.classList.add('hidden-postcard-content')
     postCardDiv.appendChild(postcardContent)
-
 
     const title = document.createElement('div')
     title.innerText = postcardDetails.title
@@ -43,22 +43,25 @@ export default function createSlider(htmlElem, imagesDetails) {
     const getFirstImage = () => sU.getImage(S, activeImageIndex, 1)
     const getSecondImage = () => sU.getImage(S, activeImageIndex, 2)
     const getActiveImage = () => sU.getImage(S, activeImageIndex, 3)
+    const getImageFromRight = () => sU.getImage(S, activeImageIndex, 4)
 
     const showFirstImage = () => getFirstImage().style.display = 'flex'
     const showSecondImage = () => getSecondImage().style.display = 'flex'
 
-    const showAndActiveImage = () => {
-        const imageToActive = getActiveImage()
+    const showAndActiveImage = (imageToActive) => {
         imageToActive.style.display = 'flex'
         imageToActive.classList.add('active')
         imageToActive.childNodes[0].style.display = 'flex'
+        imageToActive.childNodes[1].style.display = 'flex'
         imageToActive.childNodes[1].classList.add('active')
         imageToActive.childNodes[2].style.display = 'flex'
         imageToActive.childNodes[3].style.display = 'flex'
+        imageToActive.style.order = '3'
+        getFirstImage().childNodes[1].style.display = 'flex'
+        getSecondImage().childNodes[1].style.display = 'flex'
     }
 
-    const hideAndUnActiveImage = () => {
-        const activeImage = getActiveImage()
+    const hideAndUnActiveImage = (activeImage) => {
         activeImage.style.display = 'none'
         activeImage.classList.remove('active')
         activeImage.style.order = '0'
@@ -74,25 +77,44 @@ export default function createSlider(htmlElem, imagesDetails) {
         if (activeImageIndex === 1) getSecondImage().style.order = '1';
     }
     const prevActiveImageIndex = () => {
-        if (++activeImageIndex === S.childNodes.length) activeImageIndex = S.childNodes.length - 1
+        if (++activeImageIndex === S.childNodes.length) activeImageIndex = 0
         if (activeImageIndex === 1 || activeImageIndex === 0) getActiveImage().style.order = '2';
         if (activeImageIndex === 1) getSecondImage().style.order = '1';
     }
 
+    const unActiveImage = (activeImage) => {
+        activeImage.classList.remove('active')
+        activeImage.childNodes[1].classList.remove('active')
+        activeImage.style.order = '0'
+        activeImage.childNodes[0].style.display = 'none'
+        activeImage.childNodes[2].style.display = 'none'
+        activeImage.childNodes[3].style.display = 'none'
+    }
+    const hideImage = (imageToHide) => {
+        imageToHide.style.display = 'none'
+        imageToHide.style.order = '0'
+        imageToHide.childNodes[1].style.display = 'none'
+
+    }
     const nextImage = () => {
-        hideAndUnActiveImage()
+        hideAndUnActiveImage(getActiveImage())
+
         nextActiveImageIndex()
-        showAndActiveImage()
+
+        showAndActiveImage(getActiveImage())
         showFirstImage()
         setProperImagesWidth()
     }
     const prevImage = () => {
-        hideAndUnActiveImage()
+        unActiveImage(getActiveImage())
+        hideImage(getFirstImage())
+
         prevActiveImageIndex()
-        showAndActiveImage()
-        showFirstImage()
+
+        showAndActiveImage(getActiveImage())
         setProperImagesWidth()
     }
+
 /////////////////////////// INITIALIZE /////////////////////////////////
     const S = document.getElementsByClassName(htmlElem)[0]
     const slidesPositions = []
@@ -110,7 +132,7 @@ export default function createSlider(htmlElem, imagesDetails) {
     let activeImageIndex = S.childNodes.length - 1
     showFirstImage()
     showSecondImage()
-    showAndActiveImage()
+    showAndActiveImage(getActiveImage())
 }
 
 function createSlideDiv(image) {
