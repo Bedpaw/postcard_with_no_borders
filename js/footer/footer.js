@@ -1,7 +1,7 @@
 function createNavButton ({ passiveText, activeText, passiveClass, activeClass }) {
     const toggleInnerText = elem => elem.innerText === passiveText ? elem.innerText = activeText : elem.innerText = passiveText
 
-    const footerButton = document.createElement('button')
+    const footerButton = document.createElement('div')
     footerButton.classList.add('nav-btn', passiveClass)
     footerButton.innerText = passiveText
     footerButton.addEventListener("click", () => {

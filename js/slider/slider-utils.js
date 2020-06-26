@@ -8,7 +8,10 @@ function getSecondImageIndex(S, activeImageIndex) {
   if (activeImageIndex === 0) return S.childNodes.length - 1;
   else return activeImageIndex - 1
 }
-
+function getImageFromRight(S, activeImageIndex) {
+  if (activeImageIndex === S.childNodes.length - 1) return 0
+  else return activeImageIndex + 1
+}
 export function getImage(S, activeImageIndex, index) {
   let imageIndex = 0
   switch (index) {
@@ -21,12 +24,12 @@ export function getImage(S, activeImageIndex, index) {
     case 3:
       imageIndex = activeImageIndex
       break
+    case 4:
+      imageIndex = getImageFromRight()
+      break;
   }
   return S.childNodes[imageIndex]
 }
-
-
-
 
 export function setProperWidths (S, activeImageIndex, slidesPositions, mobileViewport) {
   const mq = window.matchMedia( "(max-width: 768px)" );
@@ -61,7 +64,7 @@ export function setProperWidths (S, activeImageIndex, slidesPositions, mobileVie
         setSecondImageWidth(20)
       }
     } else {
-      setActiveImageWidth(40)
+      setActiveImageWidth(35)
 
       if (isFirstHorizontal && isSecondHorizontal) {
         setActiveImageWidth(30)
@@ -69,9 +72,9 @@ export function setProperWidths (S, activeImageIndex, slidesPositions, mobileVie
         setSecondImageWidth(35)
       } else if (isFirstHorizontal) {
         setFirstImageWidth(40)
-        setSecondImageWidth(20)
+        setSecondImageWidth(25)
       } else if (isSecondHorizontal) {
-        setFirstImageWidth(20)
+        setFirstImageWidth(25)
         setSecondImageWidth(40)
       }
     }
