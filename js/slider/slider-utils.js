@@ -90,26 +90,23 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   function setTabletSizes () {
     getActiveImage().classList.remove('horizontalPic-mobile')
     setActiveImageHeight(100)
+    setFirstImageWidth(0)
 
     if (isActiveHorizontal) {
-      setActiveImageWidth(80)
-      setFirstImageWidth(20)
-      setSecondImageWidth(0)
-     } else {
-      setActiveImageWidth(50)
-
-      if (isFirstHorizontal && isSecondHorizontal) {
-        setActiveImageWidth(50)
-        setFirstImageWidth(25)
-        setSecondImageWidth(25)
-      } else if (isFirstHorizontal) {
-        setFirstImageWidth(50)
-        setSecondImageWidth(0)
-      } else if (isSecondHorizontal) {
-        setFirstImageWidth(0)
-        setSecondImageWidth(50)
+      if (isSecondHorizontal) {
+        setActiveImageWidth(60)
+        setSecondImageWidth(40)
+      } else {
+        setActiveImageWidth(70)
+        setSecondImageWidth(30)
       }
-  }
+    } else if (isSecondHorizontal) {
+      setActiveImageWidth(50)
+      setSecondImageWidth(50)
+    } else {
+      setActiveImageWidth(60)
+      setSecondImageWidth(40)
+    }
   }
 
   function setMobileSizes () {

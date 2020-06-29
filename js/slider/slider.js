@@ -97,7 +97,10 @@ export default function createSlider(htmlElem, imagesDetails, hiddenPostCardText
     tabletSize.addListener(setProperImagesWidth)
     mobileSize2.addListener(setProperImagesWidth)
 
+
     // Show first 3 pictures
     let activeImageIndex = S.childNodes.length - 1
     showAndSetOrderForImages()
+    setProperImagesWidth()
+
 }
