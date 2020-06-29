@@ -31,7 +31,8 @@ export function getImage(S, activeImageIndex, index) {
   return S.childNodes[imageIndex]
 }
 
-export function setProperWidths (S, activeImageIndex, slidesPositions) {
+
+export function setProperWidths(S, activeImageIndex, slidesPositions) {
   const mqMobile = window.matchMedia( "(max-width: 767px)" );
  // const mqLandscape = window.matchMedia( "(orientation: landscape)" );
   const mqTablet = window.matchMedia( "(max-width: 1023px)" );
@@ -58,10 +59,11 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
       setSecondImageWidth(0)
     } else {
       setActiveImageWidth(85)
+      setActiveImageHeight(100)
       setFirstImageWidth(0)
       setSecondImageWidth(0)
     }
-  } /* else if (mqMobile.matches && mqLandscape.matches) {
+  } /*  else if (mqMobile.matches && mqLandscape.matches) {
     getActiveImage().classList.remove('horizontalPic-mobile')
     setActiveImageHeight(100)
     if (isActiveHorizontal) {
@@ -118,7 +120,7 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
       if (isFirstHorizontal) {
         setFirstImageWidth(40)
         setSecondImageWidth(0)
-      } else if (isSecondHorizontal) {
+      } else  if (isSecondHorizontal) {
         setFirstImageWidth(0)
         setSecondImageWidth(40)
       } else {

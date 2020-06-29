@@ -1,5 +1,5 @@
 function createNavButton ({ passiveText, activeText, passiveClass, activeClass }) {
-    const toggleInnerText = elem => elem.innerText === passiveText ? elem.innerText = activeText : elem.innerText = passiveText
+    const toggleInnerText = elem => elem.innerText === passiveText ? elem.innerHTML = activeText : elem.innerText = passiveText
 
     const footerButton = document.createElement('div')
     footerButton.classList.add('nav-btn', passiveClass)
@@ -16,5 +16,6 @@ export default function createNav(htmlElem, buttonsDetails) {
   buttonsDetails.map( (buttonDetail) => {
     const navButton = createNavButton(buttonDetail)
     navBar.appendChild(navButton);
+
   })
 }

@@ -83,8 +83,8 @@ main {
 }
 
 .slide.active {
-  height: 100%;
-  width: 85%;
+  height: 66%;
+  width: 100%;
   display: flex;
 }
 
@@ -296,14 +296,27 @@ nav {
 .nav-btn-active {
   position: absolute;
   top: -24%;
-  right: -6%;
+  right: -12%;
   padding: 20px;
   font-size: 13px;
   border: none;
-  width: 180%;
+  width: 250%;
   background: #130202 none;
   color: white;
   text-align: justify;
+}
+.nav-btn-active .btn-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 3%;
+}
+.nav-btn-active p {
+  padding: 2%;
+}
+.nav-btn-active ul {
+  padding: 2%;
+  list-style-type: disc;
 }
 
 @media screen and (min-width: 768px) {

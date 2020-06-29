@@ -24,7 +24,6 @@ export function createSlideDiv(image) {
   arrowRight.classList.add('arrow-right')
   arrowRightDiv.appendChild(arrowRight)
 
-
   slideDiv.appendChild(arrowLeftDiv)
   slideDiv.appendChild(slideImg)
   slideDiv.appendChild(arrowRightDiv)
