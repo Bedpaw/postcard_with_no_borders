@@ -27,8 +27,10 @@ export function getImage(S, activeImageIndex, index) {
 }
 
 export function setProperWidths (S, activeImageIndex, slidesPositions) {
-  const isMobile = window.matchMedia( "(max-width: 768px)" ).matches
-  const isTablet = window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1024px)").matches
+
+  const mqMobile = window.matchMedia("(max-width: 767px)").matches;
+  // const mqLandscape = window.matchMedia( "(orientation: landscape)" );
+  const mqTablet = window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1024px)").matches
 
   const isFirstHorizontal = slidesPositions[getFirstImageIndex(S, activeImageIndex)]
   const isSecondHorizontal = slidesPositions[getSecondImageIndex(S, activeImageIndex)]
@@ -42,32 +44,35 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   const setSecondImageWidth = (percentageWidth) => getSecondImage().style.width = percentageWidth + '%'
   const setActiveImageWidth = (percentageWidth) => getActiveImage().style.width = percentageWidth + '%'
 
-  if (isTablet) {
-    setActiveImageWidth(60)
-    setSecondImageWidth(40)
-    setFirstImageWidth(0)
-  }
-  else if (isMobile) {
-    setActiveImageWidth(90)
-    setFirstImageWidth(0)
-    setSecondImageWidth(0)
-  } else {
+  const setActiveImageHeight = (percentageHeight) => getActiveImage().style.height = percentageHeight + '%'
+
+
+  if (mqMobile) { setMobileSizes() }
+  else if (mqTablet) { setTabletSizes() }
+  else { setDesktopSizes() }
+
+
+  function setDesktopSizes () {
+    getActiveImage().classList.remove('horizontalPic-mobile')
+    setActiveImageHeight(100)
+
     if (isActiveHorizontal) {
       setActiveImageWidth(60)
-
       if (isFirstHorizontal) {
         setFirstImageWidth(40)
         setSecondImageWidth(0)
-      } else if (isSecondHorizontal) {
-        setFirstImageWidth(0)
-        setSecondImageWidth(40)
-      } else {
-        setFirstImageWidth(20)
-        setSecondImageWidth(20)
       }
-    } else {
+      else if (isSecondHorizontal) {
+        setSecondImageWidth(40)
+        setFirstImageWidth(0)
+      }
+      else {
+        setSecondImageWidth(20)
+        setFirstImageWidth(20)
+      }
+    }
+    else {
       setActiveImageWidth(35)
-
       if (isFirstHorizontal && isSecondHorizontal) {
         setActiveImageWidth(30)
         setFirstImageWidth(35)
@@ -80,4 +85,72 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
         setSecondImageWidth(40)
       }
     }
-}}
+  }
+
+  function setTabletSizes () {
+    getActiveImage().classList.remove('horizontalPic-mobile')
+    setActiveImageHeight(100)
+
+    if (isActiveHorizontal) {
+      setActiveImageWidth(80)
+      setFirstImageWidth(20)
+      setSecondImageWidth(0)
+     } else {
+      setActiveImageWidth(50)
+
+      if (isFirstHorizontal && isSecondHorizontal) {
+        setActiveImageWidth(50)
+        setFirstImageWidth(25)
+        setSecondImageWidth(25)
+      } else if (isFirstHorizontal) {
+        setFirstImageWidth(50)
+        setSecondImageWidth(0)
+      } else if (isSecondHorizontal) {
+        setFirstImageWidth(0)
+        setSecondImageWidth(50)
+      }
+  }
+  }
+
+  function setMobileSizes () {
+    if (isActiveHorizontal) {
+      setActiveImageWidth(100)
+      setActiveImageHeight(66)
+      getActiveImage().classList.add('horizontalPic-mobile')
+      setFirstImageWidth(0)
+      setSecondImageWidth(0)
+    }
+    else {
+      setActiveImageWidth(85)
+      setFirstImageWidth(0)
+      setSecondImageWidth(0)
+    }
+  }
+
+}
+
+/* else if (mqMobile.matches && mqLandscape.matches) {
+getActiveImage().classList.remove('horizontalPic-mobile')
+setActiveImageHeight(100)
+if (isActiveHorizontal) {
+  setActiveImageWidth(80)
+  setFirstImageWidth(20)
+  setSecondImageWidth(0)
+
+} else {
+  setActiveImageWidth(50)
+
+  if (isFirstHorizontal && isSecondHorizontal) {
+    setActiveImageWidth(50)
+    setFirstImageWidth(25)
+    setSecondImageWidth(25)
+  } else if (isFirstHorizontal) {
+    setFirstImageWidth(50)
+    setSecondImageWidth(0)
+  } else if (isSecondHorizontal) {
+    setFirstImageWidth(0)
+    setSecondImageWidth(50)
+  }
+}
+
+} */
