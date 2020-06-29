@@ -8,12 +8,10 @@ function getSecondImageIndex(S, activeImageIndex) {
   if (activeImageIndex === 0) return S.childNodes.length - 1;
   else return activeImageIndex - 1
 }
-function getImageFromRight(S, activeImageIndex) {
-  if (activeImageIndex === S.childNodes.length - 1) return 0
-  else return activeImageIndex + 1
-}
+
 export function getImage(S, activeImageIndex, index) {
   let imageIndex = 0
+
   switch (index) {
     case 1:
       imageIndex = getFirstImageIndex(S, activeImageIndex)
@@ -24,15 +22,14 @@ export function getImage(S, activeImageIndex, index) {
     case 3:
       imageIndex = activeImageIndex
       break
-    case 4:
-      imageIndex = getImageFromRight()
-      break;
   }
   return S.childNodes[imageIndex]
 }
 
-export function setProperWidths (S, activeImageIndex, slidesPositions, mobileViewport) {
-  const mq = window.matchMedia( "(max-width: 768px)" );
+export function setProperWidths (S, activeImageIndex, slidesPositions) {
+  const isMobile = window.matchMedia( "(max-width: 768px)" ).matches
+  const isTablet = window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1024px)").matches
+
   const isFirstHorizontal = slidesPositions[getFirstImageIndex(S, activeImageIndex)]
   const isSecondHorizontal = slidesPositions[getSecondImageIndex(S, activeImageIndex)]
   const isActiveHorizontal = slidesPositions[activeImageIndex]
@@ -45,11 +42,16 @@ export function setProperWidths (S, activeImageIndex, slidesPositions, mobileVie
   const setSecondImageWidth = (percentageWidth) => getSecondImage().style.width = percentageWidth + '%'
   const setActiveImageWidth = (percentageWidth) => getActiveImage().style.width = percentageWidth + '%'
 
-  if (mq.matches) {
+  if (isTablet) {
+    setActiveImageWidth(60)
+    setSecondImageWidth(40)
+    setFirstImageWidth(0)
+  }
+  else if (isMobile) {
     setActiveImageWidth(90)
     setFirstImageWidth(0)
     setSecondImageWidth(0)
-  } else{
+  } else {
     if (isActiveHorizontal) {
       setActiveImageWidth(60)
 
