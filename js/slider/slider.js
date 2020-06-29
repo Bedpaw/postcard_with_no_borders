@@ -1,12 +1,12 @@
 import * as sU from './slider-utils.js'
-import { createHiddenPostcard } from './hidden-postcard-creator.js'
+import { createHiddenPostcard, createHiddenPostcardParis } from './hidden-postcard-creator.js'
 import { createSlideDiv } from './slide-creator.js'
 
 
-export default function createSlider(htmlElem, imagesDetails) {
+export default function createSlider(htmlElem, imagesDetails, hiddenPostCardTexts) {
     // S -> SLIDER
     // sU -> SLIDER UTILS
-    const setProperImagesWidth = (media) => sU.setProperWidths(S, activeImageIndex, slidesPositions, media)
+    const setProperImagesWidth = () => sU.setProperWidths(S, activeImageIndex, slidesPositions)
 
     const getFirstImage = () => sU.getImage(S, activeImageIndex, 1)
     const getSecondImage = () => sU.getImage(S, activeImageIndex, 2)
@@ -40,7 +40,6 @@ export default function createSlider(htmlElem, imagesDetails) {
         activeImage.classList.remove('active')
         activeImage.childNodes[1].classList.remove('active') // image
         setDisplayForArrowsAndHiddenImage(activeImage, 'none')
-
     }
 
     const showAndSetOrderForImages = () => {
@@ -76,16 +75,32 @@ export default function createSlider(htmlElem, imagesDetails) {
     const S = document.getElementsByClassName(htmlElem)[0]
     const slidesPositions = []
 
-    imagesDetails.map( (imageDetail) => {
+    imagesDetails.map( (imageDetail, index) => {
         const [slideDiv, slidePosition] = createSlideDiv(imageDetail)
         slidesPositions.push(slidePosition)
         slideDiv.childNodes[0].addEventListener('click', () => prevImage())
         slideDiv.childNodes[2].addEventListener('click', () => nextImage())
-        slideDiv.appendChild(createHiddenPostcard())
+
+        if (index !== 5) {
+            slideDiv.appendChild(createHiddenPostcard(hiddenPostCardTexts[index]))
+        } else {
+          slideDiv.appendChild(createHiddenPostcardParis(hiddenPostCardTexts[index]))
+        }
         S.appendChild(slideDiv)
     })
+    const mobileSize = window.matchMedia("(max-width: 768px)")
+    const mobileSize2 = window.matchMedia("(min-width: 768px)")
+    const desktopSize = window.matchMedia("(min-width: 1024px)")
+    const tabletSize = window.matchMedia("(max-width: 1024px)")
+    mobileSize.addListener(setProperImagesWidth)
+    desktopSize.addListener(setProperImagesWidth)
+    tabletSize.addListener(setProperImagesWidth)
+    mobileSize2.addListener(setProperImagesWidth)
+
 
     // Show first 3 pictures
     let activeImageIndex = S.childNodes.length - 1
     showAndSetOrderForImages()
+    setProperImagesWidth()
+
 }

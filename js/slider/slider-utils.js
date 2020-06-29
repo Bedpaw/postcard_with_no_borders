@@ -3,17 +3,15 @@ function getFirstImageIndex(S, activeImageIndex)
   if (activeImageIndex === 1) return S.childNodes.length - 1
   if (activeImageIndex === 0) return S.childNodes.length - 2
   else return activeImageIndex - 2
-} 
+}
 function getSecondImageIndex(S, activeImageIndex) {
   if (activeImageIndex === 0) return S.childNodes.length - 1;
   else return activeImageIndex - 1
 }
-function getImageFromRight(S, activeImageIndex) {
-  if (activeImageIndex === S.childNodes.length - 1) return 0
-  else return activeImageIndex + 1
-}
+
 export function getImage(S, activeImageIndex, index) {
   let imageIndex = 0
+
   switch (index) {
     case 1:
       imageIndex = getFirstImageIndex(S, activeImageIndex)
@@ -24,18 +22,15 @@ export function getImage(S, activeImageIndex, index) {
     case 3:
       imageIndex = activeImageIndex
       break
-    case 4:
-      imageIndex = getImageFromRight()
-      break;
   }
   return S.childNodes[imageIndex]
 }
 
+export function setProperWidths (S, activeImageIndex, slidesPositions) {
 
-export function setProperWidths(S, activeImageIndex, slidesPositions) {
-  const mqMobile = window.matchMedia( "(max-width: 767px)" );
- // const mqLandscape = window.matchMedia( "(orientation: landscape)" );
-  const mqTablet = window.matchMedia( "(max-width: 1023px)" );
+  const mqMobile = window.matchMedia("(max-width: 767px)").matches;
+  const mqTablet = window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1024px)").matches
+
   const isFirstHorizontal = slidesPositions[getFirstImageIndex(S, activeImageIndex)]
   const isSecondHorizontal = slidesPositions[getSecondImageIndex(S, activeImageIndex)]
   const isActiveHorizontal = slidesPositions[activeImageIndex]
@@ -50,86 +45,32 @@ export function setProperWidths(S, activeImageIndex, slidesPositions) {
 
   const setActiveImageHeight = (percentageHeight) => getActiveImage().style.height = percentageHeight + '%'
 
-  if (mqMobile.matches) {
-    if (isActiveHorizontal) {
-      setActiveImageWidth(100)
-      setActiveImageHeight(66)
-      getActiveImage().classList.add('horizontalPic-mobile')
-      setFirstImageWidth(0)
-      setSecondImageWidth(0)
-    } else {
-      setActiveImageWidth(85)
-      setActiveImageHeight(100)
-      setFirstImageWidth(0)
-      setSecondImageWidth(0)
-    }
-  } /*  else if (mqMobile.matches && mqLandscape.matches) {
+  if (mqMobile) { setMobileSizes() }
+  else if (mqTablet) { setTabletSizes() }
+  else { setDesktopSizes() }
+
+
+  function setDesktopSizes () {
     getActiveImage().classList.remove('horizontalPic-mobile')
     setActiveImageHeight(100)
-    if (isActiveHorizontal) {
-      setActiveImageWidth(80)
-      setFirstImageWidth(20)
-      setSecondImageWidth(0)
 
-    } else {
-      setActiveImageWidth(50)
-
-      if (isFirstHorizontal && isSecondHorizontal) {
-        setActiveImageWidth(50)
-        setFirstImageWidth(25)
-        setSecondImageWidth(25)
-      } else if (isFirstHorizontal) {
-        setFirstImageWidth(50)
-        setSecondImageWidth(0)
-      } else if (isSecondHorizontal) {
-        setFirstImageWidth(0)
-        setSecondImageWidth(50)
-      }
-    }
-
-  } */else if (mqTablet.matches) {
-    getActiveImage().classList.remove('horizontalPic-mobile')
-    setActiveImageHeight(100)
-    if (isActiveHorizontal) {
-      setActiveImageWidth(80)
-      setFirstImageWidth(20)
-      setSecondImageWidth(0)
-
-    } else {
-      setActiveImageWidth(50)
-
-      if (isFirstHorizontal && isSecondHorizontal) {
-        setActiveImageWidth(50)
-        setFirstImageWidth(25)
-        setSecondImageWidth(25)
-      } else if (isFirstHorizontal) {
-        setFirstImageWidth(50)
-        setSecondImageWidth(0)
-      } else if (isSecondHorizontal) {
-        setFirstImageWidth(0)
-        setSecondImageWidth(50)
-      }
-    }
-
-} else{
-    getActiveImage().classList.remove('horizontalPic-mobile')
-    setActiveImageHeight(100)
     if (isActiveHorizontal) {
       setActiveImageWidth(60)
-
       if (isFirstHorizontal) {
         setFirstImageWidth(40)
         setSecondImageWidth(0)
-      } else  if (isSecondHorizontal) {
-        setFirstImageWidth(0)
-        setSecondImageWidth(40)
-      } else {
-        setFirstImageWidth(20)
-        setSecondImageWidth(20)
       }
-    } else {
+      else if (isSecondHorizontal) {
+        setSecondImageWidth(40)
+        setFirstImageWidth(0)
+      }
+      else {
+        setSecondImageWidth(20)
+        setFirstImageWidth(20)
+      }
+    }
+    else {
       setActiveImageWidth(35)
-
       if (isFirstHorizontal && isSecondHorizontal) {
         setActiveImageWidth(30)
         setFirstImageWidth(35)
@@ -142,4 +83,44 @@ export function setProperWidths(S, activeImageIndex, slidesPositions) {
         setSecondImageWidth(40)
       }
     }
-  }}
+  }
+
+  function setTabletSizes () {
+    getActiveImage().classList.remove('horizontalPic-mobile')
+    setActiveImageHeight(100)
+    setFirstImageWidth(0)
+
+    if (isActiveHorizontal) {
+      if (isSecondHorizontal) {
+        setActiveImageWidth(60)
+        setSecondImageWidth(40)
+      } else {
+        setActiveImageWidth(70)
+        setSecondImageWidth(30)
+      }
+    } else if (isSecondHorizontal) {
+      setActiveImageWidth(50)
+      setSecondImageWidth(50)
+    } else {
+      setActiveImageWidth(60)
+      setSecondImageWidth(40)
+    }
+  }
+
+  function setMobileSizes () {
+    if (isActiveHorizontal) {
+      setActiveImageWidth(100)
+      setActiveImageHeight(66)
+      getActiveImage().classList.add('horizontalPic-mobile')
+      setFirstImageWidth(0)
+      setSecondImageWidth(0)
+    }
+    else {
+      setActiveImageWidth(85)
+      setFirstImageWidth(0)
+      setSecondImageWidth(0)
+      setActiveImageHeight(100)
+    }
+  }
+
+}
