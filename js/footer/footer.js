@@ -15,7 +15,7 @@ function createNavButton ({ passiveText, activeText, passiveClass, activeClass }
       else if (IsAnyNavButtonOpen() === false){
         footerButton.classList.toggle(activeClass);
         toggleInnerText(footerButton);
-      }
+    }
     })
     return footerButton
   }

@@ -234,6 +234,7 @@ main {
   font-weight: bold;
   max-width: 400px;
   text-align: center;
+  transition: 1s;
 }
 
 @media screen and (min-width: 768px) {
@@ -278,6 +279,7 @@ nav {
   font-weight: bold;
   max-width: 400px;
   text-align: center;
+  transition: 1s;
 }
 
 @media screen and (min-width: 768px) {
@@ -300,7 +302,7 @@ nav {
   padding: 20px;
   font-size: 13px;
   border: none;
-  width: 250%;
+  width: 90vw;
   background: #130202 none;
   color: white;
   text-align: justify;
@@ -318,6 +320,11 @@ nav {
   padding: 2%;
   list-style-type: disc;
 }
+.nav-btn-active .closer {
+  background: white;
+  width: 100px;
+  height: 100px;
+}
 
 @media screen and (min-width: 768px) {
   .nav-btn-active {
@@ -330,11 +337,12 @@ nav {
 @media screen and (min-width: 1024px) {
   .nav-btn-active {
     position: relative;
-    top: -197%;
+    top: -128%;
     right: 0;
-    height: 550%;
-    max-width: 24%;
-    background: rgba(19, 2, 2, 0.77) none;
+    height: 431%;
+    max-width: 35%;
+    font-size: 15px;
+    background: rgba(19, 2, 2, 0.9) none;
   }
 }
 body {

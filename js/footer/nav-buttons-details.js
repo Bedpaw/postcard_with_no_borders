@@ -1,4 +1,4 @@
-export const navButtons =
+ export const navButtons =
   [
     {
       passiveText: 'O co chodzi',
@@ -20,7 +20,7 @@ export const navButtons =
         '<div class="btn-title">Jak pomóc?</div>'+
         '<p> Zasady akcji są proste. Każda osoba, która otrzyma pocztówkę, będzie nominowana do wpłaty kwoty na zbiórkę wspierającą lekarzy i wysłania pocztówek do 3 kolejnych osób.' +
         ' A każda z tych osób wyśle pocztówki kolejnym 3 znajomym… i tak akcja rozprzestrzeni się na całą Polskę (a kto wie – może i poza jej granice?) </p>' +
-        '<p> Pocztówkę można wypełnić w dowolny sposób</p>' +
+        '<p> Pocztówkę można wypełnić w dowolny sposób:</p>' +
         '<ul><li>odbyć podróż w czasie, opisać wakacje sprzed kilku lat i wysłać kartkę do znajomego, który jest częścią tych wakacyjnych wspomnień</li> ' +
         '<li> w wyobraźni przenieść się do wymarzonego miejsca, które w tym roku miało być wakacyjnym celem.</li>' +
         '<li> Zresztą do dyspozycji są aż 3 pocztówki – na każdej może być opisana inna wyjątkowa podróż</li>' +
