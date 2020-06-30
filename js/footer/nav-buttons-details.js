@@ -4,6 +4,7 @@
       passiveText: 'O co chodzi',
       activeText:
           '<div class="btn-title">O co chodzi?</div>'+
+          '<div class="x-nav-button">X</div>'+
           '<p>Chcesz dowiedzieć się, o co w tym chodzi i stać się w te wakacje częścią czegoś niesamowitego? ' +
           'W skrócie: wesprzesz ważny cel, a co więcej, w tym roku wybierzesz się nie w jedną, a w aż trzy wakacyjne podróże</p>' +
           '<p> Czego potrzebujesz? Nieco wyobraźni, długopisu albo pióra i chęci, by pomóc. Razem sprawimy, że te wakacje staną się niezapomniane</p>' +
@@ -18,6 +19,7 @@
       passiveText: 'Jak pomóc?',
       activeText:
         '<div class="btn-title">Jak pomóc?</div>'+
+        '<div class="x-nav-button">X</div>'+
         '<p> Zasady akcji są proste. Każda osoba, która otrzyma pocztówkę, będzie nominowana do wpłaty kwoty na zbiórkę wspierającą lekarzy i wysłania pocztówek do 3 kolejnych osób.' +
         ' A każda z tych osób wyśle pocztówki kolejnym 3 znajomym… i tak akcja rozprzestrzeni się na całą Polskę (a kto wie – może i poza jej granice?) </p>' +
         '<p> Pocztówkę można wypełnić w dowolny sposób:</p>' +
@@ -34,6 +36,7 @@
       passiveText: 'Cel',
       activeText:
         '<div class="btn-title">Cel</div>'+
+        '<div class="x-nav-button">X</div>'+
         '<p> Wszystkie uzyskane środki będą przekazywane na służbę zdrowia. A co z kosztem samych pocztówek i ich wysyłki? No właśnie, tutaj liczymy na Waszą pomoc!</p>' +
         '<p> Chcemy, by uczestnicy pocztówkowej akcji nie musieli dodatkowo ponosić kosztów związanych z zakupem kartek i znaczków.' +
         ' Obecnie naszym celem jest więc zebranie środków na stworzenie 1000 pakietów pocztówkowych, w których znajdą się 3 kartki i 3 znaczki. ' +
@@ -47,8 +50,24 @@
     {
       passiveText: 'Kontakt',
       activeText:
+
         '<div class="btn-title">Kontakt</div>'+
-        '<p>bla bla bla</p>',
+        '<div class="x-nav-button">X</div>'+
+        '<div class="main_link_container">' +
+         '<img class="main_link" src="styles/social_icons/heart_icon.png" alt="heart"/>'+
+          '<a href="/www.google.com">Wspomóż zbiórkę!</a>' +
+        '</div>'+
+
+        '<p>' +
+          '<a href="/www.facebook.pl">' +
+            '<img src="styles/social_icons/fb_icon.png" alt="fb" class="link_icon"/> Fanpage akcji' +
+          '</a>' +
+        '</p>'+
+        '<p>' +
+          '<a href=mailto:bedpaw97@gmail.com">' +
+            '<img src="styles/social_icons/mail_icon.svg" alt="mail" class="link_icon"/> Wyślij nam e-mail!' +
+          '</a>' +
+        '</p>',
       passiveClass: 'contact',
       activeClass: 'nav-btn-active'
     },

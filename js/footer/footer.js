@@ -1,23 +1,20 @@
 function createNavButton ({ passiveText, activeText, passiveClass, activeClass }) {
 
-    const toggleInnerText = elem => elem.innerText === passiveText
-      ? elem.innerHTML = activeText
-      : elem.innerText = passiveText
+  const footerButton = document.createElement('div')
+  footerButton.classList.add('nav-btn', passiveClass)
+  footerButton.innerText = passiveText
 
-    const footerButton = document.createElement('div')
-    footerButton.classList.add('nav-btn', passiveClass)
-    footerButton.innerText = passiveText
-    footerButton.addEventListener("click", () => {
-      if (footerButton.classList.contains('nav-btn-active')) {
-        footerButton.classList.toggle(activeClass);
-        toggleInnerText(footerButton);
-      }
-      else if (IsAnyNavButtonOpen() === false){
-        footerButton.classList.toggle(activeClass);
-        toggleInnerText(footerButton);
+  footerButton.addEventListener("click", () => {
+    if (IsAnyNavButtonOpen() === false) {
+      footerButton.classList.add(activeClass);
+      footerButton.innerHTML = activeText
+
+      deleteCursorFromAllButtons()
+      addEventListenerForQuitButton(footerButton, passiveText)
     }
-    })
-    return footerButton
+  })
+
+  return footerButton
   }
 
 export default function createNav(htmlElem, buttonsDetails) {
@@ -29,7 +26,6 @@ export default function createNav(htmlElem, buttonsDetails) {
   })
 }
 
-
 function IsAnyNavButtonOpen() {
   let isOpen = false
   const navBar = document.querySelector("nav");
@@ -39,4 +35,29 @@ function IsAnyNavButtonOpen() {
     }
   })
   return isOpen
+}
+
+function deleteCursorFromAllButtons() {
+  const navBar = document.querySelector("nav");
+  navBar.childNodes.forEach(button => {
+      button.style.cursor = 'default';
+    })
+}
+
+function addCursorForAllButtons() {
+  const navBar = document.querySelector("nav");
+  navBar.childNodes.forEach(button => {
+      button.style.cursor = 'pointer'
+    })
+}
+
+function addEventListenerForQuitButton(target, passiveText) {
+  const exitSign = target.getElementsByClassName('x-nav-button')[0]
+
+  exitSign.addEventListener('click', e => {
+      target.classList.remove('nav-btn-active');
+      target.innerText = passiveText
+      addCursorForAllButtons()
+      e.stopPropagation()
+  })
 }
