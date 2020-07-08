@@ -207,11 +207,14 @@ main {
   justify-content: space-around;
   background-color: white;
   opacity: 0;
-}
-.hidden-postcard-content:hover {
-  opacity: 0.7;
+  cursor: default;
 }
 
+@media screen and (min-width: 768px) {
+  .hidden-postcard-content:hover {
+    opacity: 0.75;
+  }
+}
 .hidden-postcard-title {
   font-style: italic;
   font-weight: bold;
@@ -227,6 +230,15 @@ main {
   overflow: hidden;
 }
 
+.hidden-postcard-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 60px;
+  padding-bottom: 10px;
+}
+
 .nav-btn {
   position: relative;
   border: none;
@@ -235,7 +247,9 @@ main {
   font-weight: bold;
   max-width: 400px;
   text-align: center;
-  transition: 1s;
+  transition: color 1s;
+  animation-name: open_nav_button;
+  animation-duration: 1000ms;
 }
 
 @media screen and (min-width: 768px) {
@@ -262,9 +276,14 @@ main {
 .link_icon {
   width: 20px;
   padding-right: 5px;
+  border-radius: 5%;
 }
 .link_icon:hover {
   opacity: 0.8;
+}
+
+.text-around-button {
+  line-height: 20px;
 }
 
 .main_link_container {
@@ -312,6 +331,14 @@ main {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes open_nav_button {
+  0% {
+    font-size: 0;
+  }
+  99% {
+    font-size: 25px;
   }
 }
 nav {
@@ -344,7 +371,9 @@ nav {
   font-weight: bold;
   max-width: 400px;
   text-align: center;
-  transition: 1s;
+  transition: color 1s;
+  animation-name: open_nav_button;
+  animation-duration: 1000ms;
 }
 
 @media screen and (min-width: 768px) {
@@ -371,9 +400,14 @@ nav {
 .link_icon {
   width: 20px;
   padding-right: 5px;
+  border-radius: 5%;
 }
 .link_icon:hover {
   opacity: 0.8;
+}
+
+.text-around-button {
+  line-height: 20px;
 }
 
 .main_link_container {
@@ -423,6 +457,14 @@ nav {
     transform: scale(1);
   }
 }
+@keyframes open_nav_button {
+  0% {
+    font-size: 0;
+  }
+  99% {
+    font-size: 25px;
+  }
+}
 .nav-btn-active {
   position: absolute;
   top: -24%;
@@ -434,6 +476,10 @@ nav {
   background: #130202 none;
   color: white;
   text-align: justify;
+  z-index: 12;
+  line-height: 1.1;
+  animation-name: open_nav_button;
+  animation-duration: 1000ms;
 }
 .nav-btn-active .btn-title {
   text-align: center;
@@ -473,9 +519,20 @@ nav {
     background: rgba(19, 2, 2, 0.9) none;
   }
 }
+@keyframes open_nav_button {
+  0% {
+    font-size: 0;
+  }
+  99% {
+    font-size: 25px;
+  }
+}
 body {
   height: 100vh;
   overflow: hidden;
+}
+body link:visited {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

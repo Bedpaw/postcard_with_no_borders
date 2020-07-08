@@ -1,14 +1,14 @@
  export const navButtons =
   [
     {
-      passiveText: 'O co chodzi',
+      passiveText: 'O co chodzi?',
       activeText:
           '<div class="btn-title">O co chodzi?</div>'+
           '<div class="x-nav-button">X</div>'+
           '<p>Chcesz dowiedzieć się, o co w tym chodzi i stać się w te wakacje częścią czegoś niesamowitego? ' +
           'W skrócie: wesprzesz ważny cel, a co więcej, w tym roku wybierzesz się nie w jedną, a w aż trzy wakacyjne podróże</p>' +
           '<p> Czego potrzebujesz? Nieco wyobraźni, długopisu albo pióra i chęci, by pomóc. Razem sprawimy, że te wakacje staną się niezapomniane</p>' +
-          '<p>Pocztówki od wielu, wielu lat cieszą się popularnością. O ile pisanie listów już dawno zastąpiły maile czy SMS-y, to te kartoniki ze zdjęciami wciąż zachowały swój urok."' +
+          '<p>Pocztówki od wielu, wielu lat cieszą się popularnością. O ile pisanie listów już dawno zastąpiły maile czy SMS-y, to te kartoniki ze zdjęciami wciąż zachowały swój urok. ' +
           'Jest coś magicznego w wysyłaniu kartki z odległego miejsca. Tak samo uśmiech pojawia się na naszych twarzach, gdy to my znajdujemy taką pocztówkę w swojej skrzynce.</p>' +
           '<p> Pandemia pokrzyżowała plany każdemu z nas. W tym te wakacyjne. Ale w tym roku całą Polską możemy wykorzystać magię pocztówek, by zrobić coś dobrego dla siebie i innych:</p>' +
           '<ul><li>Wesprzemy służbę zdrowia</li><li>Stworzymy niesamowite wakacyjne wspomnienia.</li></ul>',
@@ -16,9 +16,9 @@
       activeClass: 'nav-btn-active'
     },
     {
-      passiveText: 'Jak pomóc?',
+      passiveText: 'Zasady akcji',
       activeText:
-        '<div class="btn-title">Jak pomóc?</div>'+
+        '<div class="btn-title">Zasady akcji</div>'+
         '<div class="x-nav-button">X</div>'+
         '<p> Zasady akcji są proste. Każda osoba, która otrzyma pocztówkę, będzie nominowana do wpłaty kwoty na zbiórkę wspierającą lekarzy i wysłania pocztówek do 3 kolejnych osób.' +
         ' A każda z tych osób wyśle pocztówki kolejnym 3 znajomym… i tak akcja rozprzestrzeni się na całą Polskę (a kto wie – może i poza jej granice?) </p>' +
@@ -33,9 +33,9 @@
       activeClass: 'nav-btn-active'
     },
     {
-      passiveText: 'Cel',
+      passiveText: 'Jak mogę pomóc?',
       activeText:
-        '<div class="btn-title">Cel</div>'+
+        '<div class="btn-title">Jak mogę pomóc?</div>'+
         '<div class="x-nav-button">X</div>'+
         '<p> Wszystkie uzyskane środki będą przekazywane na służbę zdrowia. A co z kosztem samych pocztówek i ich wysyłki? No właśnie, tutaj liczymy na Waszą pomoc!</p>' +
         '<p> Chcemy, by uczestnicy pocztówkowej akcji nie musieli dodatkowo ponosić kosztów związanych z zakupem kartek i znaczków.' +
@@ -55,12 +55,12 @@
         '<div class="x-nav-button">X</div>'+
         '<div class="main_link_container">' +
          '<img class="main_link" src="styles/social_icons/heart_icon.png" alt="heart"/>'+
-          '<a href="/www.google.com">Wspomóż zbiórkę!</a>' +
+          '<a href="https://www.google.com"><span class= "main_link_text" style="color:white">Wspomóż zbiórkę!<span/> </a>' +
         '</div>'+
 
         '<p>' +
-          '<a href="/www.facebook.pl">' +
-            '<img src="styles/social_icons/fb_icon.png" alt="fb" class="link_icon"/> Fanpage akcji' +
+          '<a href="https://www.facebook.pl">' +
+            '<img src="styles/social_icons/fb_icon.png" alt="fb" class="link_icon"/> <span style="color:white">Fanpage akcji</span>' +
           '</a>' +
         '</p>'+
         '<p>' +

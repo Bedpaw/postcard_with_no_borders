@@ -45,14 +45,17 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
 
   const setActiveImageHeight = (percentageHeight) => getActiveImage().style.height = percentageHeight + '%'
 
+
   if (mqMobile) { setMobileSizes() }
   else if (mqTablet) { setTabletSizes() }
   else { setDesktopSizes() }
+  setProperTextSize()
 
 
   function setDesktopSizes () {
     getActiveImage().classList.remove('horizontalPic-mobile')
     setActiveImageHeight(100)
+
 
     if (isActiveHorizontal) {
       setActiveImageWidth(60)
@@ -123,4 +126,23 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
     }
   }
 
+  function setProperTextSize() {
+    const hiddenPostcardText = getActiveImage().getElementsByTagName("p")[0]
+    const hiddenPostcardContent = getActiveImage().getElementsByTagName("div")[4].childNodes[0]
+    console.log(hiddenPostcardText.paddingBottom)
+    console.log(hiddenPostcardText.clientHeight)
+    console.log(hiddenPostcardContent.clientHeight)
+
+    const TextToContentHeights = () => hiddenPostcardText.clientHeight  / hiddenPostcardContent.clientHeight * 100
+    console.log(hiddenPostcardText)
+    console.log(hiddenPostcardContent)
+    // console.log(TextToContentHeights())
+    if (TextToContentHeights() > 85) {
+      hiddenPostcardText.style.fontSize = '15px'
+    } else if (TextToContentHeights() > 80) {
+      hiddenPostcardText.style.fontSize = '18px'
+    }
+
+  }
 }
+

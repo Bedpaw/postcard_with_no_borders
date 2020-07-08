@@ -68,6 +68,7 @@ export default function createSlider(htmlElem, imagesDetails, hiddenPostCardText
         prevActiveImageIndex()
         showAndSetOrderForImages()
         setProperImagesWidth()
+
     }
 
 /////////////////////////// INITIALIZE /////////////////////////////////
@@ -82,7 +83,8 @@ export default function createSlider(htmlElem, imagesDetails, hiddenPostCardText
         slideDiv.childNodes[2].addEventListener('click', () => nextImage())
 
         if (index !== 5) {
-            slideDiv.appendChild(createHiddenPostcard(hiddenPostCardTexts[index]))
+            const paris = createHiddenPostcard(hiddenPostCardTexts[index])
+            slideDiv.appendChild(paris)
         } else {
           slideDiv.appendChild(createHiddenPostcardParis(hiddenPostCardTexts[index]))
         }

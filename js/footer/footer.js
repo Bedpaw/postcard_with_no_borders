@@ -8,8 +8,8 @@ function createNavButton ({ passiveText, activeText, passiveClass, activeClass }
     if (IsAnyNavButtonOpen() === false) {
       footerButton.classList.add(activeClass);
       footerButton.innerHTML = activeText
-
-      deleteCursorFromAllButtons()
+      footerButton.style.cursor = 'default'
+      // deleteCursorFromAllButtons()
       addEventListenerForQuitButton(footerButton, passiveText)
     }
   })
