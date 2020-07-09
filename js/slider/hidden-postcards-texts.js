@@ -1,7 +1,7 @@
 export const hiddenPostcardsTexts = [
   {
     title: "Drogi Pawle, \n" ,
-    p1: "W Tokio trochę tłoczno, ale niezwykle kolorowo. Samo miasto mieści taką liczbę mieszkańców, jak cała Polska, więc wiadomo, że na światłach trochę się stoi - zwłaszcza w dzielnicy Shibua, gdzie na pasach przeszło nam przed oczami 2,5 tys. osób (nie martw się, nie liczyliśmy). W międzyczasie Tomek wyskoczył po sushi. Było całkiem inne niż to w Polsce:  bez prażonych orzeszków czy słodkich sosów - tylko ryż i surowa ryba, za to jaka świeża! Stanęła nam jednak w gardle, gdy nagle wyrosła przed nami Wieża Eiffla … cóż, okazało się, że Japończycy mają podobną, choć 8 metrów wyższą i całkiem czerwoną. Nazywają ją Tokyo Tower, a na tarasie widokowym rozdają turystom specjalny certyfikat. Cóż, któż Japończykom zabroni?",
+    p1: "W Nowym Jorku trochę tłoczno, ale za to rozmaicie. Da się tu słyszeć taką angielszczyznę, że Brytyjczycy załamaliby ręce. Samo miasto pędzi nieustannie w jakiejś dzikiej gonitwie, więc wiadomo, że na światłach trochę się stoi - zwłaszcza na Times Square, gdzie na pasach przeszło nam przed oczami 2,5 tys. osób (nie martw się, nie liczyliśmy). W międzyczasie Tomek wyskoczył po burgery. Były tłuste, soczyste i w rozmiarze XL - tak jak Statua Wolności, która nagle wyrosła nam przed oczami. Czy wiesz, że to taki \"drobny\" podarunek od rządu francuskiego? Zastanawiające, że nie ma twarzy Marianny … \n",
     footer: "Twoja certyfikowana Turystka\n",
   },
   {
@@ -13,8 +13,8 @@ export const hiddenPostcardsTexts = [
   },
   {
     title: "Droga Aniu," ,
-    p1: "wstaliśmy przed świtem i oto jesteśmy - na Taj Mahal o wschodzie słońca. Miało być oryginalnie, hipstersko i (przyznam) nieco romantycznie. Wyszło (jak zwykle) tłoczno i turystycznie. Przed wejściem godzinna kolejka, a wszystkie te tłumy ciągną do… grobowca!\n" +
-      "To jakby narusza komfort spoczynku, nie sądzisz? Bo Taj Mahal to mylna nazwa - niby chodzi o pałac, ale w rzeczywistości: o mauzoleum, które cesarz Szahdżahan wybudował dla swojej ukochanej żony, zmarłej przy porodzie, bagatela, czternastego dziecka. Wywiązał się tym samym z jednej z trzech obietnic, jakie na nim wymogła: nigdy powtórnie się nie ożenić, zaopiekować dziećmi oraz postawić architektoniczne arcydzieło dla uczczenia jej pamięci. Widać, cesarz miał gest. I smak! " ,
+    p1: "wstaliśmy przed świtem i oto jesteśmy - na Taj Mahal o wschodzie słońca. Miało być oryginalnie, hipstersko i (przyznam) nieco romantycznie. Wyszło (jak zwykle) tłoczno i turystycznie. Przed wejściem godzinna kolejka, a wszystkie te tłumy ciągną do … grobowca!\n" +
+      "To jakby narusza komfort spoczynku, nie sądzisz? Bo Taj Mahal to mylna nazwa - niby chodzi o pałac, ale w rzeczywistości: o mauzoleum, które cesarz Szahdżahan wybudował dla swojej ukochanej żony, zmarłej przy porodzie, bagatela, czternastego dziecka. Wywiązał się tym samym z jednej z trzech obietnic, jakie na nim wymogła: nigdy powtórnie się nie ożenić, zaopiekować dziećmi oraz postawić architektoniczne arcydzieło dla uczczenia jej pamięci. Widać, cesarz miał gest. I smak! \n",
     footer: "Namaste!\n",
   },
   {
@@ -37,7 +37,7 @@ export const hiddenPostcardsTexts = [
       "Spacery po bulwarach i fascynujące ogrody\n" +
       "To zaledwie przedsmak tego, co przechadzając się tędy\n" +
       "Udało nam się przeżyć, oh te przygody!",
-    p3: "Z gracją równą młodej Paryżance,\n" +
+    p3:"Z gracją równą młodej Paryżance,\n" +
       "Dopijając ostatni łyk porannej kawy\n" +
       "Przesyłamy Ci całusy i widzimy się wkrótce\n" +
       "Na powycieczkowej France - pogadance.",
@@ -48,3 +48,4 @@ export const hiddenPostcardsTexts = [
     footer: "Pozdrawiam, Andrzej\n",
   },
 ]
+

@@ -49,6 +49,7 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   if (mqMobile) { setMobileSizes() }
   else if (mqTablet) { setTabletSizes() }
   else { setDesktopSizes() }
+
   setProperTextSize()
 
 
@@ -127,22 +128,35 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   }
 
   function setProperTextSize() {
+    const isParisPostcard = getActiveImage().getElementsByTagName("p").length !== 1
     const hiddenPostcardText = getActiveImage().getElementsByTagName("p")[0]
     const hiddenPostcardContent = getActiveImage().getElementsByTagName("div")[4].childNodes[0]
-    console.log(hiddenPostcardText.paddingBottom)
+    const hiddenPostCardTitle = getActiveImage().querySelector('.hidden-postcard-title')
+    console.log(hiddenPostCardTitle)
     console.log(hiddenPostcardText.clientHeight)
     console.log(hiddenPostcardContent.clientHeight)
 
-    const TextToContentHeights = () => hiddenPostcardText.clientHeight  / hiddenPostcardContent.clientHeight * 100
+    const TextToContentHeights = () => hiddenPostcardText.clientHeight / hiddenPostcardContent.clientHeight * 100
     console.log(hiddenPostcardText)
     console.log(hiddenPostcardContent)
-    // console.log(TextToContentHeights())
-    if (TextToContentHeights() > 85) {
-      hiddenPostcardText.style.fontSize = '15px'
-    } else if (TextToContentHeights() > 80) {
-      hiddenPostcardText.style.fontSize = '18px'
+    console.log(TextToContentHeights())
+    if (!isParisPostcard) {
+      hiddenPostcardText.style.fontSize = '24px'
+      hiddenPostCardTitle.style.fontStyle = '32px'
     }
+    if (TextToContentHeights() > 90) {
+      hiddenPostcardText.style.fontSize = '16px'
+      hiddenPostCardTitle.style.fontStyle = '20px'
+    } else if (TextToContentHeights() > 75) {
+      hiddenPostcardText.style.fontSize = '20px'
+      hiddenPostCardTitle.style.fontStyle = '24px'
 
+    }
+    if (TextToContentHeights() > 80) {
+      hiddenPostcardText.style.fontSize = '16px'
+      hiddenPostCardTitle.style.fontStyle = '20px'
+
+    }
   }
 }
 
