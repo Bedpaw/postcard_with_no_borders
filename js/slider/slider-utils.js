@@ -132,14 +132,9 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
     const hiddenPostcardText = getActiveImage().getElementsByTagName("p")[0]
     const hiddenPostcardContent = getActiveImage().getElementsByTagName("div")[4].childNodes[0]
     const hiddenPostCardTitle = getActiveImage().querySelector('.hidden-postcard-title')
-    console.log(hiddenPostCardTitle)
-    console.log(hiddenPostcardText.clientHeight)
-    console.log(hiddenPostcardContent.clientHeight)
 
     const TextToContentHeights = () => hiddenPostcardText.clientHeight / hiddenPostcardContent.clientHeight * 100
-    console.log(hiddenPostcardText)
-    console.log(hiddenPostcardContent)
-    console.log(TextToContentHeights())
+
     if (!isParisPostcard) {
       hiddenPostcardText.style.fontSize = '24px'
       hiddenPostCardTitle.style.fontStyle = '32px'
