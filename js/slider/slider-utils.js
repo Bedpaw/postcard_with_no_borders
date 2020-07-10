@@ -44,6 +44,8 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   const setActiveImageWidth = (percentageWidth) => getActiveImage().style.width = percentageWidth + '%'
 
   const setActiveImageHeight = (percentageHeight) => getActiveImage().style.height = percentageHeight + '%'
+  const setFirstImageHeight = (percentageHeight) => getFirstImage().style.height = percentageHeight + '%'
+  const setSecondImageHeight = (percentageHeight) => getSecondImage().style.height = percentageHeight + '%'
 
 
   if (mqMobile) { setMobileSizes() }
@@ -56,6 +58,8 @@ export function setProperWidths (S, activeImageIndex, slidesPositions) {
   function setDesktopSizes () {
     getActiveImage().classList.remove('horizontalPic-mobile')
     setActiveImageHeight(100)
+    setFirstImageHeight(100)
+    setSecondImageHeight(100)
 
 
     if (isActiveHorizontal) {

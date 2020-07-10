@@ -28,6 +28,12 @@
     width: 100px
     height: 100px
 
+.appar_animation
+  animation-name: show_link
+  animation-duration: 1000ms
+  color: white
+  text-decoration: underline
+  line-height: 1.1
 
 
 @media screen and (min-width: 768px)
@@ -52,3 +58,9 @@
     font-size: 0
   99%
     font-size: 25px
+
+@keyframes show_link
+  0%
+    color: rgba(19, 2, 2, 1)
+  99%
+    color: white

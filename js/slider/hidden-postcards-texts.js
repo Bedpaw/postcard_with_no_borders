@@ -18,7 +18,7 @@ export const hiddenPostcardsTexts = [
     footer: "Namaste!\n",
   },
   {
-    title: 'Cześć',
+    title: 'Cześć Rafał',
     p1: "Piszę do Ciebie ze szczytu. Pode mną jest całe miasto, przede mną kolejne wierzchołki gór aż po horyzont. Przypomniały mi się wakacje sprzed kilku lat, te, na które pojechaliśmy razem. Obiecaliśmy sobie wtedy, że jeszcze zdobędziemy znacznie większe góry. Że co roku będziemy gdzieś podróżować i spełniać kolejne marzenia. Teraz właśnie to robię – realizuję kolejny cel. Jestem na innym kontynencie, zmęczony długą wspinaczką. Podziwiam widoki i myślę, że nigdy nie jest za późno, by spełniać marzenia. Szczególnie te podróżnicze. I że takie wyjazdy są warte każdych pieniędzy.",
     footer: "Pozdrowienia z Rio. "
   },
@@ -45,7 +45,7 @@ export const hiddenPostcardsTexts = [
   {
     title: "Pozdrowienia ze stopa!",
     p1: "Tutaj zawsze dzieją się niesamowite rzeczy. Nic nie idzie zgodnie z planem, a jednak zawsze spotykasz właściwych ludzi we właściwym czasie. Nie wyobrażasz sobie, ile ciekawych historii tu usłyszałem. I ile niespodziewanych rzeczy robiłem! Choćby dzisiaj. Podwoził mnie jakiś chłopak w moim wieku. Miał wyrzucić mnie przy mieście, ale zapytałem go, gdzie jedzie i okazało się, że niedaleko organizują festiwal balonów. Pojechałem z nim. Trudno to nawet opisać – tłum ludzi, kolorowe balony i ja z moim lekkim lękiem wysokości. Ale warto było przełamać strach dla tych widoków. Ten chłopak opłacił mój lot, odwiózł do miasta i życzył powodzenia w dalszej podróży. Takie rzeczy są możliwe tylko na stopie. Następnym razem musisz wybrać się ze mną! \n",
-    footer: "Pozdrawiam, Andrzej\n",
+    footer: "Andrzej\n",
   },
 ]
 

@@ -4,11 +4,11 @@ function createNavButton ({ passiveText, activeText, passiveClass, activeClass }
   footerButton.classList.add('nav-btn', passiveClass)
   footerButton.innerText = passiveText
 
-  footerButton.addEventListener("click", () => {
+  footerButton.addEventListener("click", ( e ) => {
     for (let elementsByClassNameElement of document.getElementsByClassName('x-nav-button')) {
       elementsByClassNameElement.click()
     }
-      footerButton.classList.add(activeClass);
+      footerButton.classList.add('nav-btn-active');
       footerButton.innerHTML = activeText
       footerButton.style.cursor = 'default'
       // deleteCursorFromAllButtons()
