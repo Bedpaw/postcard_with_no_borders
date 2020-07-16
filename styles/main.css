@@ -521,10 +521,10 @@ nav {
 @media screen and (min-width: 1024px) {
   .nav-btn-active {
     position: relative;
-    top: -128%;
+    top: -200%;
     right: 0;
-    height: 431%;
-    max-width: 35%;
+    height: 600%;
+    max-width: 40%;
     font-size: 15px;
     background: rgba(19, 2, 2, 0.9) none;
   }
