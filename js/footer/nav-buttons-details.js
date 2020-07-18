@@ -71,7 +71,7 @@
           '</a>' +
         '</p>'+
         '<p>' +
-          '<a href=mailto:pocztowkabezgranic@gmail.com">' +
+          '<a href=mailto:biuro@pocztowkabezgranic.pl' +
             '<img src="styles/social_icons/mail_icon.svg" alt="mail" class="link_icon"/> Wyślij nam e-mail!' +
           '</a>' +
         '</p>',
